@@ -656,12 +656,12 @@ function ttm(X::AbstractArray{<:Number,N},M::MatrixCell,n::Integer,t='n') where 
 	end
 end
 #If array of matrices isn't defined as MatrixCell, but as M=[M1,M2,...,Mn]:
-ttm(X::AbstractArray{<:Number},M::Array{Matrix{T},1},modes::Array{<:Integer,1},t='n') where{T<:Number}=ttm(X,MatrixCell(M),modes,t)
-ttm(X::AbstractArray{<:Number},M::Array{Matrix{T},1},t::Char) where{T<:Number}=ttm(X,MatrixCell(M),t)
-ttm(X::AbstractArray{<:Number},M::Array{Matrix{T},1}) where{T<:Number}=ttm(X,MatrixCell(M))
-ttm(X::AbstractArray{<:Number},M::Array{Matrix{T},1},R::AbstractRange{<:Integer},t::Char) where{T<:Number}=ttm(X,MatrixCell(M),R,t)
-ttm(X::AbstractArray{<:Number},M::Array{Matrix{T},1},R::AbstractRange{<:Integer}) where{T<:Number}=ttm(X,MatrixCell(M),R)
-ttm(X::AbstractArray{<:Number},M::Array{Matrix{T},1},n::Integer,t='n') where{T<:Number}=ttm(X,MatrixCell(M),n,t)
+ttm(X::AbstractArray{<:Number},M::Array{<:AbstractMatrix{T},1},modes::Array{<:Integer,1},t='n') where{T<:Number}=ttm(X,MatrixCell(M),modes,t)
+ttm(X::AbstractArray{<:Number},M::Array{<:AbstractMatrix{T},1},t::Char) where{T<:Number}=ttm(X,MatrixCell(M),t)
+ttm(X::AbstractArray{<:Number},M::Array{<:AbstractMatrix{T},1}) where{T<:Number}=ttm(X,MatrixCell(M))
+ttm(X::AbstractArray{<:Number},M::Array{<:AbstractMatrix{T},1},R::AbstractRange{<:Integer},t::Char) where{T<:Number}=ttm(X,MatrixCell(M),R,t)
+ttm(X::AbstractArray{<:Number},M::Array{<:AbstractMatrix{T},1},R::AbstractRange{<:Integer}) where{T<:Number}=ttm(X,MatrixCell(M),R)
+ttm(X::AbstractArray{<:Number},M::Array{<:AbstractMatrix{T},1},n::Integer,t='n') where{T<:Number}=ttm(X,MatrixCell(M),n,t)
 
 """
     ttt(X,Y)
@@ -712,6 +712,6 @@ function ttv(X::AbstractArray{<:Number,N},V::VectorCell,n::Integer) where N
 	end
 end
 #If array of vectors isn't defined as VectorCell, but as V=[v1,v2,...,vn]:
-ttv(X::AbstractArray{<:Number,N},V::Array{Vector{T},1},modes::AbstractVector{<:Integer}) where {T<:Number,N} = ttv(X,VectorCell(V),modes)
-ttv(X::AbstractArray{<:Number,N},V::Array{Vector{T},1}) where {T<:Number,N} = ttv(X,VectorCell(V))
-ttv(X::AbstractArray{<:Number,N},V::Array{Vector{T},1},n::Integer) where {T<:Number,N} = ttv(X,VectorCell(V),n)
+ttv(X::AbstractArray{<:Number,N},V::Array{<:AbstractVector{T},1},modes::AbstractVector{<:Integer}) where {T<:Number,N} = ttv(X,VectorCell(V),modes)
+ttv(X::AbstractArray{<:Number,N},V::Array{<:AbstractVector{T},1}) where {T<:Number,N} = ttv(X,VectorCell(V))
+ttv(X::AbstractArray{<:Number,N},V::Array{<:AbstractVector{T},1},n::Integer) where {T<:Number,N} = ttv(X,VectorCell(V),n)
